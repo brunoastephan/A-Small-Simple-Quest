@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://smfuaohisbwn"]
+
+[ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://menu_root.gd" id="1_0vuk2"]
+
+[node name="menu_root" type="Node2D"]
+script = ExtResource("1_0vuk2")
+
+[node name="Attack" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ATTACK"
+
+[node name="Defend" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "DEFEND"
+
+[node name="Wait" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "WAIT"
