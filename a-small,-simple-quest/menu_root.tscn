@@ -1,21 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://smfuaohisbwn"]
+[gd_scene load_steps=14 format=3 uid="uid://smfuaohisbwn"]
 
 [ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://menu_root.gd" id="1_0vuk2"]
+[ext_resource type="Script" uid="uid://c0fticnagpasg" path="res://Actions/action.gd" id="2_nm81a"]
+[ext_resource type="Script" uid="uid://3i24f2om3rl5" path="res://Actions/attack_action.gd" id="3_vp43w"]
+[ext_resource type="Script" uid="uid://y6xh3b0ch830" path="res://Actions/defend_action.gd" id="4_cl5vu"]
+[ext_resource type="Script" uid="uid://ccmaqpl307uum" path="res://ActionLists/action_pool_manager.gd" id="4_vp43w"]
+[ext_resource type="Script" uid="uid://dqyh15em3flla" path="res://Actions/wait_action.gd" id="5_y6b4t"]
+[ext_resource type="Script" uid="uid://mh6ujfc5vcfk" path="res://ActionLists/action_list.gd" id="6_d6lw0"]
 
-[node name="menu_root" type="Node2D"]
+[sub_resource type="Resource" id="Resource_lgiw4"]
+script = ExtResource("6_d6lw0")
+possible_actions = Array[ExtResource("2_nm81a")]([])
+action_probabilities = Array[float]([])
+metadata/_custom_type_script = "uid://mh6ujfc5vcfk"
+
+[sub_resource type="Resource" id="Resource_cl5vu"]
+script = ExtResource("3_vp43w")
+display_name = "Attack 1"
+cost = 1
+metadata/_custom_type_script = "uid://3i24f2om3rl5"
+
+[sub_resource type="Resource" id="Resource_y6b4t"]
+script = ExtResource("3_vp43w")
+display_name = "Attack 2"
+cost = 1
+metadata/_custom_type_script = "uid://3i24f2om3rl5"
+
+[sub_resource type="Resource" id="Resource_d6lw0"]
+script = ExtResource("4_cl5vu")
+display_name = "Defend"
+cost = 1
+metadata/_custom_type_script = "uid://y6xh3b0ch830"
+
+[sub_resource type="Resource" id="Resource_5p0v6"]
+script = ExtResource("5_y6b4t")
+display_name = "Wait"
+cost = 1
+metadata/_custom_type_script = "uid://dqyh15em3flla"
+
+[sub_resource type="Resource" id="Resource_5gan4"]
+script = ExtResource("6_d6lw0")
+possible_actions = Array[ExtResource("2_nm81a")]([SubResource("Resource_cl5vu"), SubResource("Resource_y6b4t"), SubResource("Resource_d6lw0"), SubResource("Resource_5p0v6")])
+action_probabilities = Array[float]([0.5, 0.1, 0.2, 0.3])
+metadata/_custom_type_script = "uid://mh6ujfc5vcfk"
+
+[node name="menu_root" type="Node2D" node_paths=PackedStringArray("pool_manager")]
+position = Vector2(121, 67)
 script = ExtResource("1_0vuk2")
+action_list = SubResource("Resource_lgiw4")
+pool_manager = NodePath("ActionPoolManager")
 
-[node name="Attack" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "ATTACK"
-
-[node name="Defend" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "DEFEND"
-
-[node name="Wait" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "WAIT"
+[node name="ActionPoolManager" type="Node" parent="."]
+script = ExtResource("4_vp43w")
+current_list = SubResource("Resource_5gan4")
+metadata/_custom_type_script = "uid://ccmaqpl307uum"
