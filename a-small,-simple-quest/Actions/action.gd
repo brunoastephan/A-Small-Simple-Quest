@@ -1,14 +1,23 @@
-# action.gd
 class_name Action
 extends Resource
 
-@export var display_name := "Action":
-	set(value):
-		display_name = value
-		emit_changed()  # Important for resource changes
+@export var display_name := "Action"
+@export var cooldown_time := 0.0
+var cooldown_timer := 0.0
 
-@export var cost := 1
+func execute() -> bool:
+	if cooldown_timer > 0:
+		return false
+	
+	cooldown_timer = cooldown_time
+	_perform_action()
+	return true
 
-func execute():
-	print("Executed: ", display_name)
-	return display_name
+func update_cooldown(delta: float) -> bool:
+	if cooldown_timer > 0:
+		cooldown_timer = max(0, cooldown_timer - delta)
+		return cooldown_timer == 0
+	return false
+
+func _perform_action():
+	print("Action executed: ", display_name)
