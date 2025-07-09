@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdqo5m7qarows"
-path="res://.godot/imported/sword.png-40093de1b51b573707549c5ffde0a735.ctex"
+uid="uid://ignss7d5trbl"
+path="res://.godot/imported/hourglass.png-553721b8a515ba545ae25c40cf8546e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/sword.png"
-dest_files=["res://.godot/imported/sword.png-40093de1b51b573707549c5ffde0a735.ctex"]
+source_file="res://Assets/TestIcons/hourglass.png"
+dest_files=["res://.godot/imported/hourglass.png-553721b8a515ba545ae25c40cf8546e4.ctex"]
 
 [params]
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Job" load_steps=3 format=3 uid="uid://dswqdeaits50g"]
+
+[ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/ActionPool/base_action_pool.tres" id="1_0513w"]
+[ext_resource type="Script" uid="uid://c438lb56ktanv" path="res://ScriptsAndResources/Player/job.gd" id="2_jamai"]
+
+[resource]
+script = ExtResource("2_jamai")
+display_name = "Adventurer"
+base_action_pool = ExtResource("1_0513w")
+attack_damage = 10
+defense_value = 5
+max_health_modifier = 0
+metadata/_custom_type_script = "uid://c438lb56ktanv"

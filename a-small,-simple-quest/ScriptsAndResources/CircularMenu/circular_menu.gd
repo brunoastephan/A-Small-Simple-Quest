@@ -1,3 +1,4 @@
+class_name CircularMenu
 extends Node2D
 
 @export var radius := 100.0
