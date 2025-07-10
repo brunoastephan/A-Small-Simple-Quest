@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://j1mfq6btv00t"]
 
-[ext_resource type="Script" uid="uid://bjnfnj7mkvbl5" path="res://ScriptsAndResources/enemy.gd" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://bjnfnj7mkvbl5" path="res://ScriptsAndResources/Enemy/enemy.gd" id="1_hghv2"]
 [ext_resource type="Texture2D" uid="uid://d1o5m3t1tgy8e" path="res://Assets/TestIcons/icon.svg" id="2_1f0kj"]
-[ext_resource type="Script" uid="uid://dj3lx717e2glo" path="res://ScriptsAndResources/enemy_resource.gd" id="2_afpow"]
+[ext_resource type="Script" uid="uid://dj3lx717e2glo" path="res://ScriptsAndResources/Enemy/enemy_resource.gd" id="2_afpow"]
 
 [sub_resource type="Resource" id="Resource_287tu"]
 script = ExtResource("2_afpow")
@@ -18,3 +18,15 @@ resource = SubResource("Resource_287tu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1f0kj")
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, -100)
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+offset_left = -57.0
+offset_right = 54.0
+offset_bottom = 27.0
+
+[node name="Label" type="Label" parent="HealthBar"]
+offset_right = 40.0
+offset_bottom = 23.0

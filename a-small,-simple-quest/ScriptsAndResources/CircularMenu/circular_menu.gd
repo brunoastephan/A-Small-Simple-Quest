@@ -64,13 +64,17 @@ func _input(event):
 		rotate_options()
 	elif event.is_action_pressed("ui-select"):
 		var selected = current_actions[current_index]
-		var target = _find_available_target(selected)
-		var caster = _get_valid_caster()
+		var target = null
 		
-		if caster and selected.execute(caster, target):
+		# Only get target if action needs one
+		if selected.target_type != Action.TargetType.SELF:
+			target = _find_available_target(selected)
+			if not target:
+				print("No valid target found for ", selected.display_name)
+				return
+		
+		if get_parent().execute_action(selected, target):
 			hide_menu()
-		else:
-			print(selected.display_name, " failed - check caster/target/cooldown!")
 
 func _get_valid_caster() -> Node:
 	var parent = get_parent()

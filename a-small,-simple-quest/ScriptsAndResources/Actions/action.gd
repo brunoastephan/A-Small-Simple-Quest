@@ -14,11 +14,13 @@ func execute(caster: Node, target: Damageable) -> bool:
 	if cooldown_timer > 0:
 		return false
 	
-	if _is_valid_target(target):
-		cooldown_timer = cooldown_time
-		_perform_action(caster, target)
-		return true
-	return false
+	# Only validate target if action requires one
+	if target_type != TargetType.SELF and not _is_valid_target(target):
+		return false
+		
+	cooldown_timer = cooldown_time
+	_perform_action(caster, target)
+	return true
 
 # Cooldown management (now public)
 func update_cooldown(delta: float) -> bool:

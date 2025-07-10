@@ -37,11 +37,17 @@ func heal(amount: int):
 	current_health = min(current_health + amount, max_health)
 	health_changed.emit(current_health, max_health)
 
-func execute_action(action: Action, target: Damageable):
-	if not target or not action:
-		return
+func get_attack_damage() -> int:
+	return job.attack_damage if job else 0
+
+func execute_action(action: Action, target: Damageable) -> bool:
+	if not action:
+		push_error("No action provided")
+		return false
 	
-	if action.display_name == "Attack":
-		target.take_damage(job.attack_damage)
-	elif action.display_name == "Defend":
-		heal(job.defense_value)
+	# Only require target for enemy/ally actions
+	if action.target_type != Action.TargetType.SELF and not target:
+		push_error("Action requires target but none provided")
+		return false
+	
+	return action.execute(self, target)
