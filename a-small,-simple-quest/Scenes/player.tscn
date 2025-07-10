@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://clfma2tljhmt0"]
 
-[ext_resource type="Script" uid="uid://ci803xwaqdqit" path="res://ScriptsAndResources/Player/player.gd" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://ScriptsAndResources/CircularMenu/circular_menu.gd" id="2_cvnsp"]
-[ext_resource type="Script" uid="uid://ccmaqpl307uum" path="res://ScriptsAndResources/ActionPool/action_pool_manager.gd" id="4_x3wgy"]
-[ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/ActionPool/base_action_pool.tres" id="5_3smsa"]
+[ext_resource type="Script" uid="uid://ci803xwaqdqit" path="res://ScriptsAndResources/Battle/Player/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/CircularMenu/circular_menu.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://ccmaqpl307uum" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/ActionPool/action_pool_manager.gd" id="4_x3wgy"]
+[ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/ActionPool/base_action_pool.tres" id="5_3smsa"]
 [ext_resource type="Texture2D" uid="uid://d1o5m3t1tgy8e" path="res://Assets/TestIcons/icon.svg" id="5_fkybt"]
 
 [node name="Player" type="Node2D" groups=["player"]]

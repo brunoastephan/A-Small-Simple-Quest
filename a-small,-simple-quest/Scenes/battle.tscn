@@ -1,12 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhptr8hehuuvg"]
+[gd_scene load_steps=9 format=3 uid="uid://bhptr8hehuuvg"]
 
+[ext_resource type="Script" uid="uid://beexhww8gm4cv" path="res://ScriptsAndResources/Battle/BattleManager/battle_manager.gd" id="1_1ruyk"]
 [ext_resource type="PackedScene" uid="uid://j1mfq6btv00t" path="res://Scenes/enemy.tscn" id="1_oxf17"]
 [ext_resource type="PackedScene" uid="uid://clfma2tljhmt0" path="res://Scenes/player.tscn" id="2_1ruyk"]
+[ext_resource type="Resource" uid="uid://dswqdeaits50g" path="res://ScriptsAndResources/Battle/Player/default_job.tres" id="4_pd5xk"]
+[ext_resource type="PackedScene" uid="uid://bx1qcqos27y1p" path="res://Scenes/win.tscn" id="4_ww2ai"]
+[ext_resource type="Script" uid="uid://dj3lx717e2glo" path="res://ScriptsAndResources/Battle/Enemy/enemy_resource.gd" id="5_f6xt6"]
+[ext_resource type="PackedScene" uid="uid://bur4gdfq8bafb" path="res://Scenes/lose.tscn" id="5_lrv64"]
+
+[sub_resource type="Resource" id="Resource_ww2ai"]
+script = ExtResource("5_f6xt6")
+display_name = "Enemy"
+max_health = 50
+attack_damage = 8
+defense_value = 3
+attack_cooldown = 3.0
+attack_chance = 0.7
+metadata/_custom_type_script = "uid://dj3lx717e2glo"
 
 [node name="Battle" type="Node2D"]
-
-[node name="Enemy" parent="." groups=["enemies"] instance=ExtResource("1_oxf17")]
-position = Vector2(610, 143)
-
-[node name="Player" parent="." instance=ExtResource("2_1ruyk")]
-position = Vector2(235, 140)
+script = ExtResource("1_1ruyk")
+player_scene = ExtResource("2_1ruyk")
+enemy_scene = ExtResource("1_oxf17")
+win_scene = ExtResource("4_ww2ai")
+lose_scene = ExtResource("5_lrv64")
+default_job = ExtResource("4_pd5xk")
+default_enemy = SubResource("Resource_ww2ai")

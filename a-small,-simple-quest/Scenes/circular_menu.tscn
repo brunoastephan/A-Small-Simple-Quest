@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://smfuaohisbwn"]
 
-[ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://ScriptsAndResources/CircularMenu/circular_menu.gd" id="1_q1qy6"]
-[ext_resource type="Script" uid="uid://ccmaqpl307uum" path="res://ScriptsAndResources/ActionPool/action_pool_manager.gd" id="2_qnnps"]
-[ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/ActionPool/base_action_pool.tres" id="3_485rk"]
+[ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/CircularMenu/circular_menu.gd" id="1_q1qy6"]
+[ext_resource type="Script" uid="uid://ccmaqpl307uum" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/ActionPool/action_pool_manager.gd" id="2_qnnps"]
+[ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/ActionPool/base_action_pool.tres" id="3_485rk"]
 
 [node name="CircularMenu" type="Node2D" node_paths=PackedStringArray("pool_manager")]
 script = ExtResource("1_q1qy6")

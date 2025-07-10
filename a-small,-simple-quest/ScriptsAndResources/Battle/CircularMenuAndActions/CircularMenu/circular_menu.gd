@@ -87,12 +87,24 @@ func _find_available_target(action: Action) -> Damageable:
 	match action.target_type:
 		Action.TargetType.ENEMY:
 			var enemies = get_tree().get_nodes_in_group("enemies")
-			return enemies[0] if enemies.size() > 0 else null
+			for enemy in enemies:
+				if enemy is Damageable:
+					return enemy
+			return null
+			
 		Action.TargetType.ALLY:
 			var allies = get_tree().get_nodes_in_group("allies")
-			return allies[0] if allies.size() > 0 else null
+			for ally in allies:
+				if ally is Damageable:
+					return ally
+			return null
+			
+		Action.TargetType.SELF:
+			var parent = get_parent()
+			return parent if parent is Damageable else null
+			
 		_:
-			return null  # For SELF-targeting actions
+			return null
 	
 func layout_options():
 	var angle_step = TAU / option_labels.size()

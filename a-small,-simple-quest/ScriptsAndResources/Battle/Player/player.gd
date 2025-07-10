@@ -5,7 +5,7 @@ signal health_changed(new_health)
 signal died()
 
 @export var max_health := 100
-@export var job : Job = preload("res://ScriptsAndResources/Player/default_job.tres")
+@export var job : Job = preload("res://ScriptsAndResources/Battle/Player/default_job.tres")
 @onready var circular_menu: CircularMenu = $CircularMenu
 @onready var pool_manager: ActionPoolManager = $CircularMenu/ActionPoolManager
 @onready var health_bar = $HealthBar/ProgressBar
@@ -58,11 +58,14 @@ func initialize_action_system():
 func take_damage(amount: int):
 	var final_damage = max(1, amount - current_defense)
 	current_health -= final_damage
+	current_health = max(0, current_health)  # Prevent negative health
 	health_changed.emit(current_health, max_health)
 	print("Took ", final_damage, " damage (", current_defense, " blocked)")
 	
 	if current_health <= 0:
-		died.emit()
+		died.emit()  # This will trigger battle manager
+		# Disable controls
+		set_process_input(false)
 
 func get_defense_value() -> int:
 	return job.defense_value if job else 0
