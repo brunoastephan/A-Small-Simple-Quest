@@ -21,3 +21,14 @@ metadata/_custom_type_script = "uid://ccmaqpl307uum"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("5_fkybt")
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, -100)
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Label" type="Label" parent="HealthBar"]
+offset_right = 40.0
+offset_bottom = 23.0

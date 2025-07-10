@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="A Small, Simple Quest"
+run/main_scene="uid://kyt78idttwse"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/TestIcons/icon.svg"
 

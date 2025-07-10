@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="ActionPool" load_steps=11 format=3 uid="uid://bt1ef2sbogswx"]
+[gd_resource type="Resource" script_class="ActionPool" load_steps=12 format=3 uid="uid://bt1ef2sbogswx"]
 
 [ext_resource type="Script" uid="uid://c0fticnagpasg" path="res://ScriptsAndResources/Actions/action.gd" id="1_tw6mh"]
 [ext_resource type="Script" uid="uid://3i24f2om3rl5" path="res://ScriptsAndResources/Actions/attack_action.gd" id="2_1xx26"]
 [ext_resource type="Script" uid="uid://y6xh3b0ch830" path="res://ScriptsAndResources/Actions/defend_action.gd" id="3_qhrps"]
 [ext_resource type="Script" uid="uid://dqyh15em3flla" path="res://ScriptsAndResources/Actions/wait_action.gd" id="4_xn64a"]
 [ext_resource type="Script" uid="uid://mh6ujfc5vcfk" path="res://ScriptsAndResources/ActionPool/action_pool.gd" id="5_2dipj"]
+[ext_resource type="Script" uid="uid://offii0qlebg6" path="res://ScriptsAndResources/Actions/heal_action.gd" id="5_auxho"]
 
 [sub_resource type="Resource" id="Resource_a7irw"]
 script = ExtResource("2_1xx26")
+attack_power = 20
 display_name = "A1"
 cooldown_time = 1.0
 target_type = 1
@@ -15,6 +17,7 @@ metadata/_custom_type_script = "uid://3i24f2om3rl5"
 
 [sub_resource type="Resource" id="Resource_i018p"]
 script = ExtResource("2_1xx26")
+attack_power = 10
 display_name = "A2"
 cooldown_time = 1.0
 target_type = 1
@@ -22,27 +25,29 @@ metadata/_custom_type_script = "uid://3i24f2om3rl5"
 
 [sub_resource type="Resource" id="Resource_bqtm5"]
 script = ExtResource("3_qhrps")
+defense_amount = 5
 display_name = "D1"
 cooldown_time = 1.0
-target_type = 1
-metadata/_custom_type_script = "uid://y6xh3b0ch830"
-
-[sub_resource type="Resource" id="Resource_keyfn"]
-script = ExtResource("3_qhrps")
-display_name = "D2"
-cooldown_time = 1.0
-target_type = 1
+target_type = 0
 metadata/_custom_type_script = "uid://y6xh3b0ch830"
 
 [sub_resource type="Resource" id="Resource_nn5jr"]
 script = ExtResource("4_xn64a")
 display_name = "W1"
 cooldown_time = 3.0
-target_type = 1
+target_type = 0
 metadata/_custom_type_script = "uid://dqyh15em3flla"
+
+[sub_resource type="Resource" id="Resource_p3n15"]
+script = ExtResource("5_auxho")
+heal_amount = 10
+display_name = "H1"
+cooldown_time = 2.0
+target_type = 0
+metadata/_custom_type_script = "uid://offii0qlebg6"
 
 [resource]
 script = ExtResource("5_2dipj")
-possible_actions = Array[ExtResource("1_tw6mh")]([SubResource("Resource_a7irw"), SubResource("Resource_i018p"), SubResource("Resource_bqtm5"), SubResource("Resource_keyfn"), SubResource("Resource_nn5jr")])
+possible_actions = Array[ExtResource("1_tw6mh")]([SubResource("Resource_a7irw"), SubResource("Resource_i018p"), SubResource("Resource_bqtm5"), SubResource("Resource_nn5jr"), SubResource("Resource_p3n15")])
 action_probabilities = Array[float]([0.3, 0.1, 0.2, 0.5, 0.1])
 metadata/_custom_type_script = "uid://mh6ujfc5vcfk"
