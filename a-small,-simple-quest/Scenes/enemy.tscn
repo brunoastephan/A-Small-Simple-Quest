@@ -10,6 +10,8 @@ display_name = "TestEnemy"
 max_health = 50
 attack_damage = 8
 defense_value = 3
+attack_cooldown = 3.0
+attack_chance = 0.7
 metadata/_custom_type_script = "uid://dj3lx717e2glo"
 
 [node name="Enemy" type="Node2D"]
@@ -30,3 +32,5 @@ offset_bottom = 27.0
 [node name="Label" type="Label" parent="HealthBar"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="AttackTimer" type="Timer" parent="."]

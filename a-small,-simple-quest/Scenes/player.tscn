@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/ActionPool/base_action_pool.tres" id="5_3smsa"]
 [ext_resource type="Texture2D" uid="uid://d1o5m3t1tgy8e" path="res://Assets/TestIcons/icon.svg" id="5_fkybt"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_v0iea")
 
 [node name="CircularMenu" type="Node2D" parent="." node_paths=PackedStringArray("pool_manager")]
