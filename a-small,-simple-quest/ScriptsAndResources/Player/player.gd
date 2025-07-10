@@ -30,11 +30,17 @@ func take_damage(amount: int):
 	if current_health <= 0:
 		died.emit()
 
+func get_defense_value() -> int:
+	return job.defense_value if job else 0
+
 func heal(amount: int):
 	current_health = min(current_health + amount, max_health)
-	health_changed.emit(current_health)
+	health_changed.emit(current_health, max_health)
 
-func execute_action(action: Action, target):
+func execute_action(action: Action, target: Damageable):
+	if not target or not action:
+		return
+	
 	if action.display_name == "Attack":
 		target.take_damage(job.attack_damage)
 	elif action.display_name == "Defend":

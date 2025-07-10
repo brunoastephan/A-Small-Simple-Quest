@@ -64,10 +64,32 @@ func _input(event):
 		rotate_options()
 	elif event.is_action_pressed("ui-select"):
 		var selected = current_actions[current_index]
-		if selected.execute():  # Returns true if executed
+		var target = _find_available_target(selected)
+		var caster = _get_valid_caster()
+		
+		if caster and selected.execute(caster, target):
 			hide_menu()
 		else:
-			print(selected.display_name, " is on cooldown!")
+			print(selected.display_name, " failed - check caster/target/cooldown!")
+
+func _get_valid_caster() -> Node:
+	var parent = get_parent()
+	if parent and parent.has_method("execute_action"):  # Verify it's a Player
+		return parent
+	push_error("CircularMenu needs Player parent")
+	return null
+
+func _find_available_target(action: Action) -> Damageable:
+	match action.target_type:
+		Action.TargetType.ENEMY:
+			var enemies = get_tree().get_nodes_in_group("enemies")
+			return enemies[0] if enemies.size() > 0 else null
+		Action.TargetType.ALLY:
+			var allies = get_tree().get_nodes_in_group("allies")
+			return allies[0] if allies.size() > 0 else null
+		_:
+			return null  # For SELF-targeting actions
+	
 func layout_options():
 	var angle_step = TAU / option_labels.size()
 	for i in range(option_labels.size()):
