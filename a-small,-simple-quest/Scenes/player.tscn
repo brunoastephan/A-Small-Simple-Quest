@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://clfma2tljhmt0"]
+[gd_scene load_steps=7 format=3 uid="uid://clfma2tljhmt0"]
 
 [ext_resource type="Script" uid="uid://ci803xwaqdqit" path="res://ScriptsAndResources/Battle/Player/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://cik5i53t3ytv3" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/CircularMenu/circular_menu.gd" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://ccmaqpl307uum" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/ActionPool/action_pool_manager.gd" id="4_x3wgy"]
 [ext_resource type="Resource" uid="uid://bt1ef2sbogswx" path="res://ScriptsAndResources/Battle/CircularMenuAndActions/ActionPool/base_action_pool.tres" id="5_3smsa"]
 [ext_resource type="Texture2D" uid="uid://d1o5m3t1tgy8e" path="res://Assets/TestIcons/icon.svg" id="5_fkybt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkybt"]
 
 [node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_v0iea")
@@ -26,9 +28,31 @@ texture = ExtResource("5_fkybt")
 position = Vector2(0, -100)
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
-offset_right = 4.0
-offset_bottom = 27.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -10.0
+offset_right = 50.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
 
 [node name="Label" type="Label" parent="HealthBar"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_fkybt")
+horizontal_alignment = 1
+vertical_alignment = 1

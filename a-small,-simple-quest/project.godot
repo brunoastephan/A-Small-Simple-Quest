@@ -15,6 +15,11 @@ run/main_scene="uid://kyt78idttwse"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/TestIcons/icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+
 [input]
 
 ui-accept={
